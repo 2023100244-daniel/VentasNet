@@ -1,10 +1,7 @@
 # Registro de cambios
 
 **Proyecto:** VentasNet  
-**Versión base:** v1.0.0  
-**Estado:** Solicitudes evaluadas
-
----
+**Versión base:** v1.0.0
 
 ## 1. Solicitud INC-001
 
@@ -12,15 +9,16 @@
 |---|---|
 | ID | INC-001 |
 | Origen | Reporte de error detectado en el sistema |
-| Descripción | El cálculo del total de una venta no considera la cantidad de productos adquiridos. |
-| Justificación | El sistema muestra un importe incorrecto cuando se compran varias unidades. |
+| Descripción | El cálculo del total no consideraba la cantidad de productos. |
+| Justificación | El sistema mostraba un importe incorrecto en compras de varias unidades. |
 | Requisito afectado | RF-001 |
-| Archivos involucrados | src/ventas.py |
-| Riesgo | Mostrar totales incorrectos y generar errores en las ventas. |
-| Criterio de aceptación | Al ingresar precio S/ 50 y cantidad 3, el sistema debe mostrar S/ 150. |
+| Archivos involucrados | src/ventas.py; pruebas/casos_prueba.md |
+| Riesgo | Mostrar totales incorrectos. |
+| Criterio de aceptación | Precio S/ 50 y cantidad 3 deben producir S/ 150. |
 | Prioridad | Alta |
 | Decisión | Aprobada |
 | Responsable | Desarrollador del proyecto |
+| Estado | Implementada y verificada |
 
 ## 2. Solicitud CR-002
 
@@ -28,17 +26,16 @@
 |---|---|
 | ID | CR-002 |
 | Origen | Solicitud del área comercial |
-| Descripción | Incorporar un descuento del 10 % cuando el subtotal sea igual o superior a S/ 200. |
-| Justificación | Ofrecer descuentos a los clientes que realicen compras de mayor importe. |
+| Descripción | Incorporar descuento del 10 % cuando el subtotal sea igual o superior a S/ 200. |
+| Justificación | Ofrecer descuentos a clientes con compras de mayor importe. |
 | Requisito afectado | RF-002 (nuevo) |
-| Archivos involucrados | src/ventas.py y docs/requisitos.md |
-| Riesgo | Aplicar descuentos incorrectos cuando el subtotal alcance el importe mínimo. |
-| Criterio de aceptación | Subtotal S/ 200 → S/ 180; subtotal S/ 150 → S/ 150. |
+| Archivos involucrados | src/ventas.py; docs/requisitos.md |
+| Riesgo | Aplicar descuentos incorrectos. |
+| Criterio de aceptación | S/ 200 → S/ 180; S/ 150 → S/ 150. |
 | Prioridad | Media |
 | Decisión | Aprobada |
 | Responsable | Desarrollador del proyecto |
-
----
+| Estado | Aprobada, pendiente de implementación |
 
 ## 3. Matriz de evaluación de impacto
 
@@ -46,20 +43,23 @@
 |---|---|---|
 | Requisito | RF-001 | RF-002 (nuevo) |
 | Archivo | src/ventas.py | src/ventas.py; docs/requisitos.md |
-| Riesgo | Total incorrecto | Descuento incorrecto en el umbral |
+| Riesgo | Total incorrecto | Descuento incorrecto en umbral |
 | Prueba | 50 × 3 = 150 | Subtotales 150, 200 y 300 |
-| Decisión simulada | Aprobada | Aprobada |
+| Decisión | Aprobada | Aprobada |
 
-## 4. Registro de aprobación académica
+## 4. Seguimiento de implementación
 
-Se realizó una evaluación simulada de las solicitudes INC-001 y CR-002.
+### INC-001
+- Rama: fix/INC-001-total
+- Commit: INC-001: corregir calculo por cantidad
+- Integración: merge --no-ff a main
+- Prueba: S/ 50 × 3 = S/ 150
+- Estado: Implementada y verificada
 
-Ambas solicitudes fueron aprobadas para su implementación, debido a que permiten corregir un defecto existente y mejorar las funcionalidades del sistema de ventas.
+### CR-002
+- Rama prevista: feature/CR-002-descuento
+- Estado: Aprobada, pendiente de implementación
 
-La implementación se realizará de manera independiente mediante ramas Git, conservando la trazabilidad de cada modificación.
+## 5. Aprobación académica
 
-**Estado de aprobación:**
-- INC-001: Aprobada.
-- CR-002: Aprobada.
-
-**Responsable:** Desarrollador del proyecto.
+Las solicitudes INC-001 y CR-002 fueron aprobadas para su implementación. La primera fue corregida y verificada satisfactoriamente. La segunda queda pendiente para la siguiente fase.

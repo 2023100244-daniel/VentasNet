@@ -1,0 +1,1 @@
+Documento destinado al registro, evaluación y seguimiento de las solicitudes de cambio del sistema VentasNet.

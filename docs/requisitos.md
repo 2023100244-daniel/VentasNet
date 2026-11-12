@@ -1,0 +1,1 @@
+RF-001: Calcular el total de una venta según el precio y la cantidad de productos.

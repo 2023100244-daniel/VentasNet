@@ -1,0 +1,1 @@
+Documento destinado al registro de las pruebas realizadas al sistema VentasNet.
